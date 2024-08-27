@@ -24,7 +24,23 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
+      name: "",
     };
+  },
+  methods: {
+    submitForm(e) {
+      e.preventDefault();
+      alert("Form submitted");
+    },
+    setName(event, lastName) {
+      this.name = event.target.value + " " + lastName;
+    },
+    increment(num) {
+      this.counter = this.counter + num;
+    },
+    decrement(num) {
+      this.counter = this.counter - num;
+    },
   },
 });
 
