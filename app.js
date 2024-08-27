@@ -23,23 +23,36 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 0,
+      counter: 10,
       name: "",
+      confirmedName: "",
     };
   },
   methods: {
-    submitForm(e) {
-      e.preventDefault();
+    outputFullname() {
+      if (this.name === "") {
+        return "Enter your name first";
+      }
+      return this.name + " " + "Anjiri";
+    },
+    confirmInput() {
+      this.confirmedName = this.name;
+    },
+    submitForm() {
+      // e.preventDefault();
       alert("Form submitted");
     },
     setName(event, lastName) {
-      this.name = event.target.value + " " + lastName;
+      this.name = event.target.value;
     },
     increment(num) {
       this.counter = this.counter + num;
     },
     decrement(num) {
       this.counter = this.counter - num;
+    },
+    resetInput() {
+      this.name = "";
     },
   },
 });

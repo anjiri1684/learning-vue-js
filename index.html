@@ -46,12 +46,18 @@
     <section id="events">
       <h2>Events in Action</h2>
       <button v-on:click="increment(10)">Add</button>
-      <button v-on:click="decrement(5)">Reduce</button>
+      <button v-on:click.right="decrement(5)">Reduce</button>
+      <p v-once>Starting Counter: {{counter}}</p>
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input=" setName($event, 'Anjiri')" />
-      <p>Your Name: {{name}}</p>
-      <form v-on:submit="submitForm">
-        <button>Sign Up</button>
+      <input
+        type="text"
+        v-model="name"
+      />
+      <!-- <p>Your Name: {{confirmedName}}</p>
+      <form v-on:submit.prevent="submitForm">
+        <button>Sign Up</button> -->
+        <button v-on:click="resetInput">Reset Input</button>
+        <p>Your Name: {{ outputFullname() }}</p>
       </form>
     </section>
   </body>
